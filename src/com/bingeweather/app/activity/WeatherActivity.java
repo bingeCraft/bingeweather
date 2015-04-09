@@ -2,6 +2,7 @@ package com.bingeweather.app.activity;
 
 
 import com.bingeweather.app.R;
+import com.bingeweather.app.service.AutoUpdateService;
 import com.bingeweather.app.util.HttpCallbackListener;
 import com.bingeweather.app.util.HttpUtil;
 import com.bingeweather.app.util.Utility;
@@ -177,6 +178,8 @@ public class WeatherActivity extends Activity implements OnClickListener {
 		currentDateText.setText(prefs.getString("current_date", ""));
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
+		Intent intent = new Intent(this, AutoUpdateService.class);
+		startService(intent);
 	}
 	
 }
